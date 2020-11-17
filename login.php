@@ -3,7 +3,7 @@
 error_reporting(E_ALL & ~E_NOTICE);
 
 include("conexao/conexao.php");
-
+ 
 
 if(isset($_POST['login']) && strlen($_POST['login']) > 0){
 
