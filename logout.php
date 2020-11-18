@@ -4,8 +4,6 @@ function logouted() {
 	if(isset($_SESSION)){
 		
 	unset($_SESSION['usuario']); 
-	header("Location: login.php");
+	header("Location: entrar.php");
 	}
 }
-
-?>

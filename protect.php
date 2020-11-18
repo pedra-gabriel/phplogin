@@ -7,8 +7,6 @@ function protect() {
 	}
 
 	if(!isset($_SESSION['usuario']) || !is_numeric($_SESSION['usuario'])) {
-			header("Location: login.php");
+			header("Location: entrar.php");
 	}
 }
-
-?>
