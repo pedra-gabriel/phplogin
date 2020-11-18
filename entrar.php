@@ -1,6 +1,6 @@
 <?php
 
-require("login.php");
+include("login.php");
 
 ?>
 

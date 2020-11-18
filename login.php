@@ -9,7 +9,7 @@ if(isset($_POST['login']) && strlen($_POST['login']) > 0){
 	if(!isset($_SESSION))
 
 	$_SESSION['login'] = $_POST['login'];
-	$_SESSION['senha'] = $_POST['senha'];
+	$_SESSION['senha'] = md5($_POST['senha']);
 
 	$sql_code = "SELECT senha, id FROM usuario WHERE login = '$_SESSION[login]'";
 	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
