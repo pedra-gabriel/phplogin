@@ -2,9 +2,12 @@
 
 include("conexao/conexao.php");
 
+include("admin.php");
+admin();
+
 $sql_code = "SELECT * FROM usuario";
-	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
-	$linha = $sql_query->fetch_assoc();
+$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
+$linha = $sql_query->fetch_assoc();
 
 ?>
 <style type="text/css"> .tabela td { border-style: outset; }</style>
@@ -23,9 +26,10 @@ $sql_code = "SELECT * FROM usuario";
 		<td><?php echo $linha['login']; ?></td>
 		<td><?php echo $linha['senha']; ?></td>
 		<td><?php echo $linha['acesso']; ?></td>
-		<td><a href="">excluir</a></td>
+		<td><a href="delete.php?usuario=<?php echo $linha['id'];?>">excluir</a></td>
 	</tr>
 
 	<?php } while ($linha = $sql_query->fetch_assoc()); ?>
 
 </table>
+

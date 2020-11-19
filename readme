@@ -1,3 +1,6 @@
 para criar um usuario -> 	/criar.php
 
 para fazer login -> 		/entrar.php
+
+para acessar lista de usuarios precisa estar com alguma sessao aberta que tenha acesso = 1
+para adicionar acesso = 1 vais ter que faze-lo direto pelo phpmyadmin

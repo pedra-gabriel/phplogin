@@ -8,7 +8,7 @@ if(isset($_POST['logout'])) {
 	logouted();
 }
 
-echo "o id do usuário logado é " . $_SESSION['usuario'];
+echo "o id do usuário logado é " . $_SESSION['usuario'] . " e o acesso é " . $_SESSION['acesso'];
 
 ?>
 
