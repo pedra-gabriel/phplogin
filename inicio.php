@@ -8,7 +8,11 @@ if(isset($_POST['logout'])) {
 	logouted();
 }
 
-echo "o id do usuário logado é " . $_SESSION['usuario'] . " e o acesso é " . $_SESSION['acesso'];
+echo "usuário: " . $_SESSION['nome'] . "<br>id do usuário: " . $_SESSION['usuario'] . "<br>acesso: " . $_SESSION['acesso'];
+
+foreach ($_SESSION as $key => $value) {
+    print($key . ' - ' . $value . '<br>');
+};
 
 ?>
 

@@ -5,8 +5,6 @@ protectedit();
 
 include("edit.php");
 
-$_SESSION['identificador'] = $_GET['usuario'];
-
 ?>
 
 <!DOCTYPE html>

@@ -6,7 +6,7 @@ function protectedit() {
 		session_start();
 	}
 
-	if($_SESSION['usuario'] !== $_SESSION['identificador'] ) {
+	if($_SESSION['usuario'] !== $_GET['usuario']) {
 			header("Location: entrar.php");
 	}
 }

@@ -2,8 +2,7 @@
 
 include("conexao/conexao.php");
 
-
-$editar = $_SESSION['identificador'];
+$editar = $_GET['usuario'];
 
 $_SESSION['editelogin'] = $_POST['editelogin'];
 $_SESSION['editesenha'] = md5($_POST['editesenha']);

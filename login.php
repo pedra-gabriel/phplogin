@@ -13,7 +13,7 @@ if(isset($_POST['login']) && strlen($_POST['login']) > 0){
 
 	}
 
-	$sql_code = "SELECT id, acesso FROM usuario WHERE login = '$_SESSION[login]' AND senha = '$_SESSION[senha]'";
+	$sql_code = "SELECT id, acesso, login FROM usuario WHERE login = '$_SESSION[login]' AND senha = '$_SESSION[senha]'";
 	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
 	$dado = $sql_query->fetch_assoc();
 	$total = $sql_query->num_rows;
@@ -27,6 +27,7 @@ if(isset($_POST['login']) && strlen($_POST['login']) > 0){
 		session_start();
 		$_SESSION['usuario'] = $dado['id'];
 		$_SESSION['acesso'] = $dado['acesso'];
+		$_SESSION['nome'] = $dado['login'];
 			
 		echo "<script>alert('login efetuado com sucesso'); location.href='inicio.php';</script>";
 	
