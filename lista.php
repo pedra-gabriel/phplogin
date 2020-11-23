@@ -1,10 +1,12 @@
 <?php
 
+include("navbar.php");
+
 include("conexao/conexao.php");
 
-// include("admin.php");
-// admin();
-session_start();
+include("protectlista.php");
+protectlista();
+
 if($_SESSION['acesso'] == 1) {
 
 $sql_code = "SELECT * FROM usuario";

@@ -1,0 +1,90 @@
+===============INICIO ====================================
+
+<?php
+
+include("navbar.php");
+
+include("conexao/conexao.php");
+
+include("protect.php");
+protect();
+
+include("logout.php");
+if(isset($_POST['logout'])) {
+	logouted();
+}
+
+echo "usuário: " . $_SESSION['nome'] . "<br>id do usuário: " . $_SESSION['usuario'] . "<br>acesso: " . $_SESSION['acesso'];
+
+foreach ($_SESSION as $key => $value) {
+    print($key . ' - ' . $value . '<br>');
+};
+
+?>
+
+<h1>entrou</h1>
+
+<form>
+	<thead>
+		<tr>
+			<td>id</td>
+			<td>file</td>
+			<td>action</td>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<?php
+
+		$sql_codes = "SELECT * FROM files";
+		$sql_querys = $mysqli->query($sql_codes) or die ($mysqli->error);
+		while($row = $sql_querys->fetch_assoc()) {
+
+			?>
+
+			<tr>
+				<td><?php echo $row['idfile']; ?></td>
+				<td><?php echo $row['filename']; ?></td>
+				<td><a href="download.php?id=<?php echo $row['idfile']; ?>">download</a></td>
+			</tr>
+
+		<?php } ?>
+
+	</tbody>
+
+</form>
+
+<form method="POST">
+	<input type="submit" name="logout" value="logout">
+</form>
+
+==============================DOWNLOAD==========================================
+<?php
+include("conexao/conexao.php");
+
+if(isset($_GET['id'])) {
+
+	$id = $_GET['id'];
+
+	$sql_code = "SELECT * FROM files WHERE idfile = '$id'";
+	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
+	$data = $sql_query->fetch_assoc();
+
+	$file = 'midia/' . $data['filename'];
+
+	if(file_exists($file)) {
+		header('Content-Description: ' . $data['description']);
+		header('Content-Type: ' . $data['type']);
+		header('Content-Disposition: ' . $data['disposition'] . '; Filename=' . basename($file));
+		header('Expires: ' . $data['expires']);
+		header('Cache-Control: ' . $data['cache']);
+		header('Pragma: ' . $data['pragma']);
+		// header('Content-lenght: ' . filesize($file));
+		readfile($file);
+		exit;
+		echo "deu";
+	} else {
+		echo "nao deu";
+	}
+
+}

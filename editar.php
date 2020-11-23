@@ -1,5 +1,7 @@
 <?php
 
+include("navbar.php");
+
 include("protectedit.php");
 protectedit();
 

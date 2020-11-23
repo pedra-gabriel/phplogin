@@ -1,5 +1,9 @@
 <?php
 
+include("navbar.php");
+
+include("conexao/conexao.php");
+
 include("protect.php");
 protect();
 
@@ -21,3 +25,4 @@ foreach ($_SESSION as $key => $value) {
 <form method="POST">
 	<input type="submit" name="logout" value="logout">
 </form>
+
