@@ -22,7 +22,6 @@ if(isset($_SESSION['usuario'])){
 			header('Content-Disposition: ' . $data['disposition'] . '; Filename=' . basename($file));
 			header('Expires: ' . $data['expires']);
 			header('Cache-Control: ' . $data['cache']);
-			header('Pragma: ' . $data['pragma']);
 			header('Content-lenght: ' . filesize($file));
 			readfile($file);
 			exit;
