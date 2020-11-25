@@ -6,4 +6,4 @@ function logouted() {
 	unset($_SESSION['usuario'], $_SESSION['acesso'], $_SESSION['nome']); 
 	header("Location: entrar.php");
 	}
-}
+}    //session_destroy

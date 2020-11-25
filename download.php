@@ -31,4 +31,4 @@ if(isset($_SESSION['usuario'])){
 	}
 } else {
 	echo "<script>alert('faça login primeiro'); location.href='baixar.php';</script>";
-}
+} 

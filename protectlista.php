@@ -11,3 +11,5 @@ function protectlista() {
 		header("Location: entrar.php");
 	}
 }
+
+//sessio nao numerica

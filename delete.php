@@ -15,3 +15,5 @@ if($sql_query) {
 	echo "<script>alert('não foi possível excluir usuário');</script>";
 
 }
+
+//session destroy

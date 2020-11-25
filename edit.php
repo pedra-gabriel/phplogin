@@ -4,8 +4,8 @@ include("conexao/conexao.php");
 
 $editar = $_GET['usuario'];
 
-$editlogin = mysqli_escape_string($mysqli, $_POST['editelogin']);
-$editsenha = mysqli_escape_string($mysqli, md5($_POST['editesenha']));
+@$editlogin = mysqli_escape_string($mysqli, $_POST['editelogin']);
+@$editsenha = mysqli_escape_string($mysqli, md5($_POST['editesenha']));
 
 if(isset($_POST['editelogin'], $_POST['editesenha']) && is_numeric($editar) && $editar == $_SESSION['usuario']) {
 

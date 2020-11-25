@@ -17,7 +17,7 @@ include("edit.php");
 	</head>
 	<body>
 
-		<?php echo $erro ?>
+		<?php echo @$erro ?>
 
 		<form method="POST" action="">
 			<input value="" type="text" name="editelogin">
