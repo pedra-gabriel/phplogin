@@ -6,23 +6,33 @@ $erro = "";
 
 if(isset($_POST['create'])) {
 
-	$_SESSION['usuario'] = $_POST['create'];
+	$user = mysqli_escape_string($mysqli, $_POST['create']);
 
 	if(strlen($_POST['senhas']) < 6) {
 		$erro = "Sua senha deve ter no mínimo 6 caracteres";
 	} else {
-		$_SESSION['senha'] = md5($_POST['senhas']);
 
+		$sql_verifica = "SELECT login FROM usuario WHERE login = '$user'";
+		$sql_ver = $mysqli->query($sql_verifica);
+		$exists_login = $sql_ver->fetch_assoc();
 
-		$sql_code = "INSERT INTO usuario (login, senha) VALUES ('$_SESSION[usuario]', '$_SESSION[senha]')";
+		if($exists_login) {
 
-		$confirma =  $mysqli->query($sql_code) or die ($mysqli->error);
+			echo "<script>alert('esse login já existe'); location.href='criar.php';</script>";
 
-		if($confirma) {
-			unset($_SESSION['usuario'], $_SESSION['senha']);
-			header("Location: entrar.php");
 		} else {
-			$erro = "Não foi possível conectar com banco de dados";
+
+			$senha = mysqli_escape_string($mysqli, md5($_POST['senhas']));
+
+			$sql_code = "INSERT INTO usuario (login, senha) VALUES ('$user', '$senha')";
+
+			$confirma =  $mysqli->query($sql_code) or die ($mysqli->error);
+
+			if($confirma) {
+				header("Location: entrar.php");
+			} else {
+				$erro = "Não foi possível conectar com banco de dados";
+			}
 		}
 	}
 }

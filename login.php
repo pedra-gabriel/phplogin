@@ -2,14 +2,12 @@
 
 include("conexao/conexao.php");
 
-$erro = "";
- 
 if(isset($_POST['login']) && strlen($_POST['login']) > 0){
 
 	if(!isset($_SESSION)) {
 
-	$_SESSION['login'] = $_POST['login'];
-	$_SESSION['senha'] = md5($_POST['senha']);
+	$_SESSION['login'] = mysqli_escape_string($mysqli, $_POST['login']);
+	$_SESSION['senha'] = mysqli_escape_string($mysqli, md5($_POST['senha']));
 
 	}
 

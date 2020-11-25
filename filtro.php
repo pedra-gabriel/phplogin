@@ -1,15 +1,28 @@
 <?php
 
-$filtro = $_GET['session'];
+include("conexao/conexao.php");
 
-if(!is_null($filtro)){
+$filter = mysqli_escape_string($mysqli, $_GET['session']);
+$search = mysqli_escape_string($mysqli, $_GET['search']);
 
-	$sql_code = "SELECT * FROM files WHERE session = '$filtro'";
-	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
+	if($filter != "geral"){
 
-} else {
+		$sql_code = "SELECT * FROM files WHERE session = '$filter' AND filename LIKE ('%" . $search . "%')";
+		$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
 
-	$sql_code = "SELECT * FROM files";
-	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
+	} else {
 
-}
+		$sql_code = "SELECT * FROM files WHERE filename LIKE ('%" . $search . "%')";
+		$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
+
+	}
+
+
+
+
+
+
+
+
+
+

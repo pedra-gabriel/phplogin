@@ -4,19 +4,20 @@ error_reporting( E_ALL ^E_NOTICE );
 
 include("navbar.php");
 
-include("conexao/conexao.php");
+// include("conexao/conexao.php");
 
 include("protect.php");
 protect();
 
 ?>
+
 <style type="text/css"> .links td { border-style: outset; }</style>
 <table class="links">
 
 	<br>
 	<div>
 		<button>
-			<a href="baixar.php">geral</a>
+			<a href="baixar.php?session=geral">geral</a>
 		</button>
 		<button>
 			<a href="baixar.php?session=imagens">imagens</a>
@@ -59,8 +60,19 @@ protect();
 				<td><a href="download.php?id=<?php echo $row['idfile']; ?>">download</a></td>
 			</tr>
 
-		<?php } } echo $filtro; ?>
+		<?php } }  ?>
 
 	</tbody>
 
 </table>
+
+
+<?php $filtro = $_GET['session']; ?>
+<form method="GET" action="">
+	<input type="hidden" name="session" value=<?php echo $filtro ?>>
+	<input type="text" name="search">
+	<input type="submit" value="procurar">
+</form>
+
+<?php echo $filter . "<br>"; echo $search ?>
+

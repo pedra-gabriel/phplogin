@@ -1,0 +1,9 @@
+body {
+	background-image: url('../img/poligonal.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.caixalogin {
+	box-shadow: 0 10px 15px black;
+}

@@ -4,6 +4,9 @@ include("navbar.php");
 
 include("create.php");
 
+include("protectlogin.php");
+protectlogin();
+
 ?>
 
 <!DOCTYPE html>

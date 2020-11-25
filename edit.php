@@ -4,13 +4,13 @@ include("conexao/conexao.php");
 
 $editar = $_GET['usuario'];
 
-$_SESSION['editelogin'] = $_POST['editelogin'];
-$_SESSION['editesenha'] = md5($_POST['editesenha']);
+$editlogin = mysqli_escape_string($mysqli, $_POST['editelogin']);
+$editsenha = mysqli_escape_string($mysqli, md5($_POST['editesenha']));
 
-if(isset($_SESSION['editelogin'], $_SESSION['editesenha']) && is_numeric($editar)) {
+if(isset($_POST['editelogin'], $_POST['editesenha']) && is_numeric($editar) && $editar == $_SESSION['usuario']) {
 
 
-	$sql_code = "UPDATE usuario SET login = '$_SESSION[editelogin]', senha = '$_SESSION[editesenha]' WHERE id = '$editar'";
+	$sql_code = "UPDATE usuario SET login = '$editlogin', senha = '$editsenha' WHERE id = '$editar'";
 	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
 
 	if($sql_query) {
