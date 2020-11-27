@@ -1,8 +1,10 @@
 <?php
 
-include("conexao/conexao.php");
+require("conexao/conexao.php");
 
-$editar = $_GET['usuario'];
+if(isset($_GET['usuario'])){
+$editar = base64_decode($_GET['usuario']);
+} else { header('Location: entrar.php');};
 
 @$editlogin = mysqli_escape_string($mysqli, $_POST['editelogin']);
 @$editsenha = mysqli_escape_string($mysqli, md5($_POST['editesenha']));
@@ -20,4 +22,4 @@ if(isset($_POST['editelogin'], $_POST['editesenha']) && is_numeric($editar) && $
 		echo "<script>alert('não foi possível editar usuário');</script>";
 
 	}
-}
+} 

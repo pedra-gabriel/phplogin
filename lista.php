@@ -1,10 +1,12 @@
 <?php
 
-include("navbar.php");
+require('sessionverify.php');
 
-include("conexao/conexao.php");
+require("navbar.php");
 
-include("protectlista.php");
+require("conexao/conexao.php");
+
+require("protectlista.php");
 protectlista();
 
 if($_SESSION['acesso'] == 1) {
@@ -37,7 +39,7 @@ $linha = $sql_query->fetch_assoc();
 		<td><?php echo $linha['senha']; ?></td>
 		<td><?php echo $linha['acesso']; ?></td>
 		<td><a href="delete.php?usuario=<?php echo $linha['id'];?>">excluir</a></td>
-		<td><a href="editar.php?usuario=<?php echo $linha['id'];?>">editar</a></td>
+		<td><a href="editar.php?usuario=<?php echo base64_encode($linha['id']);?>">editar</a></td>
 	</tr>
 
 	<?php } while ($linha = $sql_query->fetch_assoc()); ?>

@@ -1,10 +1,10 @@
 <?php
 
-include("navbar.php");
+require("navbar.php");
 
-include("create.php");
+require("create.php");
 
-include("protectlogin.php");
+require("protectlogin.php");
 protectlogin();
 
 ?>

@@ -2,12 +2,9 @@
 
 error_reporting( E_ALL ^E_NOTICE );
 
-include("navbar.php");
+require('sessionverify.php');
 
-// include("conexao/conexao.php");
-
-include("protect.php");
-protect();
+require("navbar.php");
 
 ?>
 
@@ -52,15 +49,13 @@ protect();
 
 		?>
 
-
-
 		 	<tr>
 				<td><?php echo $row['idfile']; ?></td>
 				<td><?php echo $row['filename']; ?></td>
 				<td><a href="download.php?id=<?php echo $row['idfile']; ?>">download</a></td>
 			</tr>
 
-		<?php } }  ?>
+		<?php } }; ?>
 
 	</tbody>
 

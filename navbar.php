@@ -12,6 +12,6 @@
 		<a href="lista.php">lista</a>
 	</button>
 	<button>
-		<a href="baixar.php">baixar</a>
+		<a href="baixar.php?session=geral">baixar</a>
 	</button>
 </div>

@@ -1,13 +1,15 @@
 <?php
 
-include("navbar.php");
+require('sessionverify.php');
 
-include("conexao/conexao.php");
+require("navbar.php");
 
-include("protect.php");
+require("conexao/conexao.php");
+
+require("protect.php");
 protect();
 
-include("logout.php");
+require("logout.php");
 if(isset($_POST['logout'])) {
 	logouted();
 }

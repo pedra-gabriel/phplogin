@@ -1,6 +1,6 @@
 <?php
 
-include("conexao/conexao.php");
+require("conexao/conexao.php");
 
 $filter = mysqli_escape_string($mysqli, $_GET['session']);
 $search = mysqli_escape_string($mysqli, $_GET['search']);

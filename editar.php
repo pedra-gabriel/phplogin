@@ -1,11 +1,13 @@
 <?php
 
-include("navbar.php");
+require('sessionverify.php');
 
-include("protectedit.php");
+require("navbar.php");
+
+require("protectedit.php");
 protectedit();
 
-include("edit.php");
+require("edit.php");
 
 ?>
 

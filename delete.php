@@ -1,6 +1,6 @@
 <?php
 
-include("conexao/conexao.php");
+require("conexao/conexao.php");
 
 $deletar = $_GET['usuario'];
 
@@ -9,7 +9,7 @@ $sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
 
 if($sql_query) {
 	session_start();
-	unset($_SESSION['usuario'], $_SESSION['acesso'], $_SESSION['nome']);
+	session_destroy();
 	header('Location: entrar.php');
 } else {
 	echo "<script>alert('não foi possível excluir usuário');</script>";

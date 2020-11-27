@@ -2,14 +2,18 @@
 
 error_reporting( E_ALL ^E_NOTICE );
 
-include("login.php");
+require("login.php");
 
-include("protectlogin.php");
+require("protectlogin.php");
 protectlogin();
 
 if(isset($erro)) {
 	echo "<script>alert('$erro');</script>";
 }
+
+foreach ($_SESSION as $key => $value) {
+    print($key . ' - ' . $value . '<br>');
+};
 
 ?>
 <!DOCTYPE html>

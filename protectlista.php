@@ -1,6 +1,6 @@
 <?php 
 
-include("conexao/conexao.php");
+require("conexao/conexao.php");
 
 function protectlista() {
 
