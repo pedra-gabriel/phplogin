@@ -22,4 +22,4 @@ if(isset($_POST['editelogin'], $_POST['editesenha']) && is_numeric($editar) && $
 		echo "<script>alert('não foi possível editar usuário');</script>";
 
 	}
-} 
+}

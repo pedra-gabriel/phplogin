@@ -6,7 +6,7 @@ if ($_SESSION['registro']) {
 	$segundos = time() - $_SESSION['registro'];	//registra o momento do login
 }
 
-if($segundos > 36000) {	//limita tempo de inatividade em 10 horas
+if($segundos > 3600) {	//limita tempo de inatividade em 5min
 	session_destroy();	//logout após isso
 	header('Location: entrar.php');
 } else {

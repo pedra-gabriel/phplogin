@@ -34,6 +34,7 @@ require("navbar.php");
 		<tr>
 			<td>id</td>
 			<td>file</td>
+			<td>imagem</td>
 			<td>action</td>
 		</tr>
 	</thead>
@@ -45,13 +46,14 @@ require("navbar.php");
 
 		while ($row = $sql_query->fetch_assoc()) {
 
-			if(file_exists('midia/' . $row['filename'])) {
+			if(file_exists($row['local'] . '/' . $row['filename'])) {
 
 		?>
 
 		 	<tr>
 				<td><?php echo $row['idfile']; ?></td>
 				<td><?php echo $row['filename']; ?></td>
+				<td><img width="70" src=<?php echo $row['localimg'] ?>></td>
 				<td><a href="download.php?id=<?php echo $row['idfile']; ?>">download</a></td>
 			</tr>
 
@@ -71,4 +73,4 @@ require("navbar.php");
 
 <?php echo $filter . "<br>"; echo $search ?>
 
- 
+  

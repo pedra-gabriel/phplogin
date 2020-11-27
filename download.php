@@ -15,7 +15,7 @@ require("conexao/conexao.php");
 		$quant = $sql_queryQ->fetch_assoc();
 
 
-		if($quant['downloads'] < 3) {
+		if($quant['downloads'] < 500) {
 
 			$id = mysqli_escape_string($mysqli, $_GET['id']); //id do arquivo
 
@@ -29,7 +29,7 @@ require("conexao/conexao.php");
 			//se o arquivo existe:
 			if($data) {
 
-				$file = 'midia/' . $data['filename'];
+				$file = $data['local'] . '/' . $data['filename'];
 
 				if(file_exists($file)) {
 
@@ -46,7 +46,6 @@ require("conexao/conexao.php");
 					header('Content-Description: ' . $data['description']);
 					header('Content-Type: ' . $data['type']);
 					header('Content-Disposition: ' . $data['disposition'] . '; Filename=' . basename($file));
-					header('Expires: ' . $data['expires']);
 					header('Cache-Control: ' . $data['cache']);
 					header('Content-lenght: ' . filesize($file));
 					readfile($file);
