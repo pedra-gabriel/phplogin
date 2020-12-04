@@ -1,10 +1,18 @@
 <?php
 
-error_reporting( E_ALL ^E_NOTICE );
+// error_reporting( E_ALL ^E_NOTICE );
 
 require('sessionverify.php');
 
 require("navbar.php");
+
+require("downloadverify.php");
+
+foreach ($_SESSION as $key => $value) {
+    print('<br>' . $key . ' - ' . $value . '<br>');
+};
+
+var_dump($_SESSION);
 
 ?>
 
@@ -28,7 +36,7 @@ require("navbar.php");
 		<button>
 			<a href="baixar.php?session=apps">aplicativos</a>
 		</button>
-</div>
+	</div>
 
 	<thead>
 		<tr>
@@ -42,7 +50,7 @@ require("navbar.php");
 		
 		<?php
 
-		include("filtro.php");
+		require("filtro.php");
 
 		while ($row = $sql_query->fetch_assoc()) {
 
@@ -52,9 +60,9 @@ require("navbar.php");
 
 		 	<tr>
 				<td><?php echo $row['idfile']; ?></td>
-				<td><?php echo $row['filename']; ?></td>
+				<td><a href=<?php echo 'arquivo.php?id='.$row['idfile']; ?>><?php echo $row['filename']; ?></a></td>
 				<td><img width="70" src=<?php echo $row['localimg'] ?>></td>
-				<td><a href="download.php?id=<?php echo $row['idfile']; ?>">download</a></td>
+				<td><a href="download.php?download=<?php echo $row['idfile']; ?>">download</a></td>
 			</tr>
 
 		<?php } }; ?>

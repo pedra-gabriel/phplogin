@@ -1,20 +1,37 @@
 <?php
 
-require("conexao/conexao.php");
-		//se o arquivo existe:
+/**
+ * 
+ */
+class Pessoa {
+	private $nome;
+	private $idade;
+
+	public function __construct($nome, $idade) {
+		$this->nome = $nome;
+		$this->idade = $idade;
+	}
 
 
-			//captura a quant de downloads ja feitas pelo usuario
-			$sql_code_quant = "SELECT downloads FROM usuario WHERE id = '1'";
-			$sql_queryQ = $mysqli->query($sql_code_quant) or die ($mysqli->error);
-			$quant = $sql_queryQ->fetch_assoc();
 
-			//soma 1 na quantidade de downloads
-			$new_quant = $quant['downloads'] + 1;
+	public function getNome() {
+		return $this->nome;
+	}
 
-			$sql_code_new_quant = "UPDATE usuario SET downloads='$new_quant' WHERE id = '1'";
-				$sql_queryNQ = $mysqli->query($sql_code_new_quant) or die ($mysqli->error);
 
-			echo "quant = " . $quant . "<br>new quant = " . $new_quant . "<br><br>";
+	public function getIdade() {
+		return $this->idade;
+	}
 
-			var_dump($quant);
+	public function Falar() {
+		echo "falou<br>";
+	}
+}
+
+$alguem = new Pessoa('gabriel', 26);
+
+echo $alguem->getNome() . ' ' . $alguem->getIdade();
+
+
+
+

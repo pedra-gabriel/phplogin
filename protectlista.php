@@ -1,5 +1,7 @@
 <?php 
 
+//impede de acessar lista caso não logado
+
 require("conexao/conexao.php");
 
 function protectlista() {
@@ -11,5 +13,3 @@ function protectlista() {
 		header("Location: entrar.php");
 	}
 }
-
-//sessio nao numerica

@@ -1,7 +1,11 @@
 <?php
 
+//arquivo que procura o filme no banco de dados
+
 require("conexao/conexao.php");
 
+
+//captura respectivamente tipo do arquivo(musica, imagem, texto etc...) e busca do usuário
 $filter = mysqli_escape_string($mysqli, $_GET['session']);
 $search = mysqli_escape_string($mysqli, $_GET['search']);
 

@@ -1,4 +1,5 @@
 <?php
+//nao usado - será usado para liberar paginas apenas para admin
 
 function admin() {
 

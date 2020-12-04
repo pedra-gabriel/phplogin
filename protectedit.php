@@ -1,5 +1,7 @@
 <?php
 
+//arquivo que impede um usuário de editar outro usuário
+
 function protectedit() {
 
 	if(!isset($_SESSION)) {

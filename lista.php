@@ -10,12 +10,13 @@ require("protectlista.php");
 protectlista();
 
 if($_SESSION['acesso'] == 1) {
-
-$sql_code = "SELECT * FROM usuario";
-$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
-$linha = $sql_query->fetch_assoc();
+	//o usuario com acesso 1 é adm, nesse caso ele vê lista de todos os usuarios
+	$sql_code = "SELECT * FROM usuario";
+	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
+	$linha = $sql_query->fetch_assoc();
 
 } else {
+	//usuario com acesso null é comum, só enxerga seus próprios dados na lista
 	$sql_code = "SELECT * FROM usuario WHERE id = '$_SESSION[usuario]'";
 	$sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
 	$linha = $sql_query->fetch_assoc();

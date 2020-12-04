@@ -1,5 +1,7 @@
 <?php
 
+//arquivo que impede de entrar caso não logado
+
 function protect() {
 
 	if(!isset($_SESSION)) {
