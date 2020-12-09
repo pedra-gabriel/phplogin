@@ -1,6 +1,6 @@
 <?php
 
-//arquivo que captura arquivo selecionado para detalhes (nova página)
+//arquivo que captura arquivo selecionado para pagina de detalhes
 
 require("conexao/conexao.php");
 

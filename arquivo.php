@@ -34,8 +34,8 @@ $row_arch = $sql_query_arch->fetch_assoc();
 	<input type="text" name="comentario">
 	<input type="submit" value="enviar">
 </form>
-
-<table>
+<style type="text/css"> .coments td { border-style: outset; }</style>
+<table class="coments">
 	<tr>
 		<td>comentários:</td>
 	</tr>

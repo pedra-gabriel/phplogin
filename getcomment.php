@@ -1,5 +1,7 @@
 <?php
 
+//arquivo que captura comentarios
+
 $id_archive = mysqli_escape_string($mysqli, $_GET['id']);
 
 $sql_code_get = "SELECT usuarios, commentes, archive, nomes FROM comentarios WHERE archive = '$id_archive'";

@@ -1,5 +1,7 @@
 <?php
 
+//arquivo que cria os comentarios no banco
+
 include("conexao/conexao.php");
 
 session_start();
