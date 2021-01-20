@@ -6,11 +6,4 @@ para acessar lista de usuarios precisa estar com alguma sessao aberta que tenha 
 para adicionar acesso = 1 vais ter que faze-lo direto pelo phpmyadmin
 
 ======================================================================
-criptografar id e tudo que é parametro de usuario
-
-ajeitar front
-
-criar workbench
-
-limitar tempo session
 
